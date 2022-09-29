@@ -1,6 +1,4 @@
-# Catlady
-
-Project Working Title: Catlady
+# Project: Catlady
 
 Project Created in Unity 2021.1.18F1 using Unity, Visual Studio and Notepad++
 
