@@ -11,18 +11,20 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private float moveSpeed;
+    [Tooltip("assign gun1 etc to the graphic for each weapon. Projectile to the relevant projectile it fires")]
     [SerializeField] private GameObject gun1, gun2, gun3, projectile1, projectile2, projectile3;
     public Rigidbody2D rb;
     private float mx = 2f;
     private float my;
-    public Transform firePosition;
+    [Tooltip("Variables for projectile spawns. Edit in Prefab.")]
+    public Transform firePositionR1, firePositionR2, firePositionR3, firePositionRFB, firePositionL1, firePositionL2, firePositionL3, firePositionLFB , firePositionD1, firePositionD2, firePositionD3, firePositionU1, firePositionU2, firePositionU3;
     public bool isVertical = false;
     public bool isNegative = false;
-    public Vector3 offset, currentOffset;
+    
     [SerializeField] private float timerdefault;
     [SerializeField] private float gun1delay, gun2delay, gun3delay;
     private float timer = .4f;
-
+    private int snotPos = 1;
     private void Start() //on start, sets the default weapon and ui display to weapon 1, and the player looking right
     {
         PlayerPrefs.SetInt("playerWeapon", 1);
@@ -55,14 +57,14 @@ public class PlayerMovement : MonoBehaviour
         if (mx < 0)
         {
             spriteRenderer.flipX = true; //if player is moving left, sets negative to true and SR flips, offset is set to negative value.
-            currentOffset = -offset;
+            
             isNegative = true;
             
         }
         if (mx > 0) // if player is moving right, set negative to false and cancel the SR flip if there is one
         {
             spriteRenderer.flipX = false;
-            currentOffset = offset;
+            
             isNegative = false;
             
         }
@@ -83,7 +85,9 @@ public class PlayerMovement : MonoBehaviour
         {
 
             isVertical = false;
+            
         }
+       
 
         timer -= Time.deltaTime;
 
@@ -95,21 +99,44 @@ public class PlayerMovement : MonoBehaviour
             switch (playerWeapon)
             {
                 case 1: // creates an instance of projectile1 if weapon 1 is the current weapon
-                    Instantiate(projectile1, firePosition.position + currentOffset, firePosition.rotation);
-                    Debug.Log("You fired gun 1");
-                    Debug.Log(currentOffset);
+                    if (isNegative == false && isVertical == false)
+                    {
+                        Projectile1R(); //calls the function to shoot right & cycle between positions
+                    }
+                    if (isNegative == true && isVertical == false)
+                    {
+                        Projectile1L(); //calls the function to shoot left & cycle between positions
+                    }
+
+                    if (isNegative == false && isVertical == true)
+                    {
+                        Projectile1Up(); //calls the function to shoot up & cycle between positions
+                    }
+                    if (isNegative == true && isVertical == true)
+                    {
+                        Projectile1Down(); //calls the function to shoot down & cycle between positions
+                    }
+
                     break;
 
                 case 2: // creates an instance of projectile2 if weapon 2 is the current weapon
-                    Instantiate(projectile2, firePosition.position + currentOffset, firePosition.rotation);
-                    Debug.Log("You fired gun 2");
-                    Debug.Log(currentOffset);
+
+                    if (isNegative == false && isVertical == false)
+                    {
+                        Projectile2R(); //calls the function to shoot right
+                    }
+                    if (isNegative == true && isVertical == false)
+                    {
+                        Projectile2L(); //calls the function to shoot left
+                    }
+                   
+                    
                     break;
 
-                case 3: // creates an instance of projectile3 if weapon 3 is the current weapon
-                    Instantiate(projectile3, firePosition.position + currentOffset, firePosition.rotation);
+                case 3: // creates an instance of projectile3 at the players position if weapon 3 is the current weapon
+                    Instantiate(projectile3, transform.position, transform.rotation);
                     Debug.Log("You fired gun 3");
-                    Debug.Log(currentOffset);
+                    
                     break;
 
 
@@ -153,6 +180,151 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+     void Projectile1R() //spawns a projectile to the right of the character, cycling through the 3 positions each time
+    {
+        if (snotPos == 1)
+        {
+            Debug.Log("current snotPos Value: " + snotPos);
+            Instantiate(projectile1, firePositionR1.position, firePositionR1.rotation);
+            Debug.Log("You fired gun 1 in pos1");
+            
+        }
 
+        if (snotPos == 2) 
+        {
+            Debug.Log("current snotPos Value: " + snotPos);
+            Instantiate(projectile1, firePositionR2.position, firePositionR2.rotation);       
+            Debug.Log("You fired gun 1 in pos2");
+            
+        }
+
+
+        if (snotPos == 3) 
+        {
+            Debug.Log("current snotPos Value: " + snotPos);
+            Instantiate(projectile1, firePositionR3.position, firePositionR3.rotation);       
+            Debug.Log("You fired gun 1 in pos3");
+            
+        }
+
+        snotPos++;
+        if (snotPos > 3)
+        {
+            snotPos = 1;
+        }
+     }
+    void Projectile1L() //spawns a projectile to the left of the character, cycling through the 3 positions each time
+    {
+        if (snotPos == 1)
+        {
+            Debug.Log("current snotPos Value: " + snotPos);
+            Instantiate(projectile1, firePositionL1.position, firePositionL1.rotation);
+            Debug.Log("You fired gun 1 in Lpos1");
+            
+        }
+
+        if (snotPos == 2)
+        {
+            Debug.Log("current snotPos Value: " + snotPos);
+            Instantiate(projectile1, firePositionL2.position, firePositionL2.rotation);
+            Debug.Log("You fired gun 1 in Lpos2");
+          
+        }
+
+
+        if (snotPos == 3)
+        {
+            Debug.Log("current snotPos Value: " + snotPos);
+            Instantiate(projectile1, firePositionL3.position, firePositionL3.rotation);
+            Debug.Log("You fired gun 1 in Lpos3");
+            
+        }
+
+        snotPos++;
+        if (snotPos > 3)
+        {
+            snotPos = 1;
+        }
+    }
+
+    void Projectile1Up() //spawns a projectile to the top of the character, cycling through the 3 positions each time
+    {
+        if (snotPos == 1)
+        {
+            Debug.Log("current snotPos Value: " + snotPos);
+            Instantiate(projectile1, firePositionU1.position, firePositionU1.rotation);
+            Debug.Log("You fired gun 1 in Lpos1");
+
+        }
+
+        if (snotPos == 2)
+        {
+            Debug.Log("current snotPos Value: " + snotPos);
+            Instantiate(projectile1, firePositionU2.position, firePositionU2.rotation);
+            Debug.Log("You fired gun 1 in Lpos2");
+
+        }
+
+
+        if (snotPos == 3)
+        {
+            Debug.Log("current snotPos Value: " + snotPos);
+            Instantiate(projectile1, firePositionU3.position, firePositionU3.rotation);
+            Debug.Log("You fired gun 1 in Lpos3");
+
+        }
+
+        snotPos++;
+        if (snotPos > 3)
+        {
+            snotPos = 1;
+        }
+    }
+
+    void Projectile1Down() //spawns a projectile to the bottom of the character, cycling through the 3 positions each time
+    {
+        if (snotPos == 1)
+        {
+            Debug.Log("current snotPos Value: " + snotPos);
+            Instantiate(projectile1, firePositionD1.position, firePositionD1.rotation);
+            Debug.Log("You fired gun 1 in Lpos1");
+
+        }
+
+        if (snotPos == 2)
+        {
+            Debug.Log("current snotPos Value: " + snotPos);
+            Instantiate(projectile1, firePositionD2.position, firePositionD2.rotation);
+            Debug.Log("You fired gun 1 in Lpos2");
+
+        }
+
+
+        if (snotPos == 3)
+        {
+            Debug.Log("current snotPos Value: " + snotPos);
+            Instantiate(projectile1, firePositionD3.position, firePositionD3.rotation);
+            Debug.Log("You fired gun 1 in Lpos3");
+
+        }
+
+        snotPos++;
+        if (snotPos > 3)
+        {
+            snotPos = 1;
+        }
+    }
+
+    void Projectile2L() //spawns projectile 2 to the left of the character
+    {
+        Instantiate(projectile2, firePositionLFB.position, firePositionLFB.rotation);
+        Debug.Log("You fired gun 2");
+    }
+
+    void Projectile2R() //spawns projectile 2 to the right of the character
+    {
+        Instantiate(projectile2, firePositionRFB.position, firePositionRFB.rotation);
+        Debug.Log("You fired gun 2");
+    }
 }
     

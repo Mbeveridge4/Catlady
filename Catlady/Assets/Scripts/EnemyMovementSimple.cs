@@ -47,12 +47,12 @@ public class EnemyMovementSimple : MonoBehaviour
     {
         if (increasing == true && movesVertical == false)
         {
-            sr.flipX = false; //sets the directection the sprite is facing
+            sr.flipX = true; //sets the directection the sprite is facing
             transform.Translate(speed, 0, 0); //increases the x transform by the value of speed to move right
         }
         if (increasing == false && movesVertical == false)
         {
-            sr.flipX = true;//sets the directection the sprite is facing
+            sr.flipX = false;//sets the directection the sprite is facing
             transform.Translate(-speed, 0, 0);//decreases the x transform by the value of speed to move left
         }
 

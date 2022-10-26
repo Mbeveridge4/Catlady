@@ -114,7 +114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d18646f6511fa7f4f8a43059c89a2bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSpeed: 0.1
-  lifeTime: 2
-  offset: {x: 2, y: 0, z: 0}
+  defaultSpeed: 0.05
+  lifeTime: 3
   vertical: 0

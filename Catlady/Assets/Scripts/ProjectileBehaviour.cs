@@ -12,7 +12,6 @@ public class ProjectileBehaviour : MonoBehaviour
     private float Speed = 0.1f;
     //max lifetime of the projectile
     [SerializeField] private float lifeTime = 4f;
-    [SerializeField] private Vector3 offset;
     private PlayerMovement playerMovement;
     public bool vertical = false;
 
@@ -22,9 +21,7 @@ public class ProjectileBehaviour : MonoBehaviour
     {
 
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
-        playerMovement.offset = offset;
         vertical = playerMovement.isVertical;
-        Debug.Log(offset);
         //Sets the player idle direction to default to the right
         if (playerMovement.isNegative == false)
         {
