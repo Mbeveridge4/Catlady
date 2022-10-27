@@ -13,6 +13,7 @@ public class LevelTransition : MonoBehaviour
     private float countTime = 3.0f;
     [SerializeField] private GameObject Countdown;
     [SerializeField] private TMP_Text countdownText;
+    [SerializeField] private int defaultLives = 3;
     private bool countDown = false;
 
     private void Start()
@@ -62,13 +63,21 @@ public class LevelTransition : MonoBehaviour
         }
     }
 
-    private void NewGame()
+   public void NewGame()
     {
+        PlayerPrefs.SetInt("playerLives", defaultLives); //sets the value stored for lives to default.
+        PlayerPrefs.SetInt("playerKills", 0); //sets score to 0
+        PlayerPrefs.SetInt("playerScore", 0); //sets score to 0
         SceneManager.LoadScene("DevScene");
+        
+        Debug.Log("Score set to:" + PlayerPrefs.GetInt("playerScore")); //prints in log what it has been set to for error checking
+        Debug.Log("Starting Lives set to:" + PlayerPrefs.GetInt("playerLives")); //prints in log what it has been set to for error checking
+        Debug.Log("Kills set to:" + PlayerPrefs.GetInt("playerScore")); //prints in log what it has been set to for error checking
     }
 
-    private void QuitGame()
+    public void QuitGame()
     {
+        Debug.Log("Quit Button Clicked");
         Application.Quit();
     }
 

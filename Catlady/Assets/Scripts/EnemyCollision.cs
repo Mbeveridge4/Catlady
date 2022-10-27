@@ -12,6 +12,7 @@ public class EnemyCollision : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Collider2D col;
     [SerializeField] private PlayerStatus playerStatus;
+    
     [SerializeField] private int pointValue = 20;
     
 
@@ -22,6 +23,7 @@ public class EnemyCollision : MonoBehaviour
         {
             Debug.Log("You ran into an enemy");
             playerStatus.LoseLives(1); //runs the lose life method in the playerStatus script, feeding it a int value of 1
+            
         }
 
         if (collision.gameObject.CompareTag("Projectile")) //if object that collides with it has the projectile tag
