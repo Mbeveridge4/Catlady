@@ -59,6 +59,8 @@ public class LevelTransition : MonoBehaviour
 
         if (countTime <= 0 && countDown == true)
         {
+            int currentScore = PlayerPrefs.GetInt("playerScore");
+            PlayerPrefs.SetInt("savedScore", currentScore);
             SceneManager.LoadScene("DevScene"); //when countdown gets to 0 loads the scene DevScene
         }
     }
@@ -68,6 +70,7 @@ public class LevelTransition : MonoBehaviour
         PlayerPrefs.SetInt("playerLives", defaultLives); //sets the value stored for lives to default.
         PlayerPrefs.SetInt("playerKills", 0); //sets score to 0
         PlayerPrefs.SetInt("playerScore", 0); //sets score to 0
+        PlayerPrefs.SetInt("savedScore", 0); //sets score to 0
         SceneManager.LoadScene("DevScene");
         
         Debug.Log("Score set to:" + PlayerPrefs.GetInt("playerScore")); //prints in log what it has been set to for error checking

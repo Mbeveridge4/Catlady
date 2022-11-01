@@ -23,6 +23,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float timerdefault, gun1delay, gun2delay, gun3delay;
     private float timer = .4f;
     private int snotPos = 1;
+    public LevelTransition levelTrans;
+
+
+
     private void Start() //on start, sets the default weapon and ui display to weapon 1, and the player looking right
     {
         PlayerPrefs.SetInt("playerWeapon", 1);
@@ -41,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
             //if Escape key is pressed - reloads the DevelopmentScene **remove before final build!**
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                SceneManager.LoadScene("DevScene");
+                levelTrans.NewGame();
             }
 
             //sets mx float to the horizontal player input from unity (A,D or left or right keys)
@@ -87,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
 
             }
 
-            if (mx == 0) //if player is moving vertically or not moving at all, set vertical to false
+            if (mx == 0 && my >=0) //if player is moving vertically or not moving at all, set vertical to false
             {
 
                 isNegative = false;

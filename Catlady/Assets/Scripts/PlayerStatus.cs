@@ -24,9 +24,10 @@ public class PlayerStatus : MonoBehaviour
     {
         int currentScore = PlayerPrefs.GetInt("playerScore"); //fetches the value of player score
         int currentKills = PlayerPrefs.GetInt("playerKills");
+        int currentLives = PlayerPrefs.GetInt("playerLives");
         scoreText.text = "Score: " + currentScore.ToString(); // changes the text to display the current score
         killText.text = "Kills: " + currentKills.ToString();
-        if (PlayerPrefs.GetInt("playerLives") <= 0)
+        if (currentLives < 1)
         {
             Death();
         }
@@ -42,6 +43,10 @@ public class PlayerStatus : MonoBehaviour
         currentlives -= lives; //subtracts value given to method
         PlayerPrefs.SetInt("playerLives", currentlives); //saves the updated lives value
         Debug.Log("Lives updated to: " + PlayerPrefs.GetInt("playerLives"));
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);   //reloads the current level
+        PlayerPrefs.SetInt("playerScore", PlayerPrefs.GetInt("savedScore"));
+        Debug.Log("score Reset to: " + PlayerPrefs.GetInt("playerScore"));
+
 
     }
 
