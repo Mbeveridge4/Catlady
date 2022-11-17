@@ -39,6 +39,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (DialogueManager.GetInstance().DialogueIsPlaying)
+        {
+            return;
+        }
        
             int playerWeapon = PlayerPrefs.GetInt("playerWeapon");
 
@@ -159,7 +163,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-            if (Input.GetKeyDown(KeyCode.E)) //Cycles between weapon types
+            if (Input.GetKeyDown(KeyCode.Q)) //Cycles between weapon types
             {
 
                 int currentweapon = PlayerPrefs.GetInt("playerWeapon"); //fetches the stored value for playerWeapon and stores it in a local variable

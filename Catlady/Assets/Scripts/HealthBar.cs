@@ -7,6 +7,7 @@ using UnityEngine;
 /// </summary>
 public class HealthBar : MonoBehaviour
 {
+    [Header(" UI Life Images")]
     [SerializeField] private GameObject life1, life2, life3, life4, life5; //allows objects to be assigned in unity for the lives UI display
     private int lives;
     [SerializeField] private PlayerStatus playerStatus; //allows reference to the playerStatus script

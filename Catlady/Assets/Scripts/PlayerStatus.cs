@@ -81,7 +81,7 @@ public class PlayerStatus : MonoBehaviour
 
     public void Death()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu"); //sends the player back to the main menu once all lives are lost.
     }
 
    

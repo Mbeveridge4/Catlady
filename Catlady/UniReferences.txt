@@ -1,0 +1,5 @@
+Resources used:
+
+Dialogue Tutorial: https://www.youtube.com/watch?v=vY0Sk93YUhA&ab_channel=TreverMock
+ink unity Integration: https://assetstore.unity.com/packages/tools/integration/ink-unity-integration-60055
+ink editor: https://github.com/inkle/inky/releases/tag/0.14.1
