@@ -41,13 +41,13 @@ public class DialogueManager : MonoBehaviour
         DialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
 
-        choicesText = new TextMeshProUGUI[choices.Length];
-        int index = 0;
-        foreach (GameObject choice in choices)
-        {
-            choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
-            index++;
-        }
+       // choicesText = new TextMeshProUGUI[choices.Length];
+      //  int index = 0;
+      //  foreach (GameObject choice in choices)
+       // {
+       //     choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
+       //     index++;
+      //  }
     }
 
 
@@ -57,20 +57,20 @@ public class DialogueManager : MonoBehaviour
         {
             return;
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (DialogueIsPlaying && Input.GetKeyDown(KeyCode.E))
         {
             ContinueStory();
         }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            currentStory.ChooseChoiceIndex(0);
+        //if (DialogueIsPlaying && Input.GetKeyDown(KeyCode.A))
+        //{
+         //   currentStory.ChooseChoiceIndex(0);
           //  ContinueStory();
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            currentStory.ChooseChoiceIndex(1);
+      //  }
+      //  if (DialogueIsPlaying && Input.GetKeyDown(KeyCode.D))
+       // {
+       //     currentStory.ChooseChoiceIndex(1);
            // ContinueStory();
-        }
+      //  }
 
 
     }
@@ -107,25 +107,25 @@ public class DialogueManager : MonoBehaviour
 
     private void DisplayChoices()
     {
-        List<Choice> currentChoices = currentStory.currentChoices;
+        //List<Choice> currentChoices = currentStory.currentChoices;
 
-        if (currentChoices.Count > choices.Length)
-        {
-            Debug.Log("More choices than the UI can handle. " + currentChoices.Count);
-        }
-        int index = 0;
-        foreach (Choice choice in currentChoices)
-        {
-            choices[index].SetActive(true);
-            choicesText[index].text = choice.text;
-            Debug.Log(choice.index);
-            index++;
-        }
+        //if (currentChoices.Count > choices.Length)
+       // {
+       //     Debug.Log("More choices than the UI can handle. " + currentChoices.Count);
+       // }
+      //  int index = 0;
+      //  foreach (Choice choice in currentChoices)
+      //  {
+      //      choices[index].SetActive(true);
+      //      choicesText[index].text = choice.text;
+       //     Debug.Log(choice.index);
+       //     index++;
+      //  }
 
-        for (int i = index; i < choices.Length; index++)
-        {
-            choices[i].SetActive(false);
-        }
+      //  for (int i = index; i < choices.Length; index++)
+      //  {
+      //      choices[i].SetActive(false);
+      //  }
     }
 
     public void MakeChoice(int choiceIndex)
