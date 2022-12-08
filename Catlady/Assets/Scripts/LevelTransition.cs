@@ -15,6 +15,7 @@ public class LevelTransition : MonoBehaviour
     [SerializeField] private GameObject NeedPass;
     [SerializeField] private TMP_Text countdownText;
     [SerializeField] private int defaultLives = 3;
+    [SerializeField] private string nextLevel;
     private bool countDown = false;
 
     private void Start()
@@ -86,7 +87,7 @@ public class LevelTransition : MonoBehaviour
         PlayerPrefs.SetInt("savedScore", 0); //sets stored value saved (between levels) to 0
         PlayerPrefs.SetInt("currentFloor", 1); //sets current Floor Value to 0
         PlayerPrefs.SetInt("passHeld", 0); //sets pass held value to 0
-        SceneManager.LoadScene("DevScene");
+        SceneManager.LoadScene("Lobby");
         
         Debug.Log("Score set to:" + PlayerPrefs.GetInt("playerScore")); //prints in log what it has been set to for error checking
         Debug.Log("Starting Lives set to:" + PlayerPrefs.GetInt("playerLives")); //prints in log what it has been set to for error checking
@@ -102,10 +103,9 @@ public class LevelTransition : MonoBehaviour
 
     public void NextLevel()
     {
-        int nextFloor = PlayerPrefs.GetInt("currentFloor");
-        nextFloor++;
+        int nextFloor = (PlayerPrefs.GetInt("currentFloor") +1);
+       // nextFloor++;
         PlayerPrefs.SetInt("currentFloor", nextFloor);
-        Debug.Log("nextFloor now:" + nextFloor);
         SceneManager.LoadScene(nextFloor); //when countdown gets to 0 loads the nextFloor
     }
 
