@@ -384,7 +384,7 @@ public class PlayerMovement : MonoBehaviour
     {
         paused = true;
     }
-    public void Unpause()
+    public void UnPause()
     {
         paused = false;
     }

@@ -2026,7 +2026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &209118892
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2365,7 +2365,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 242386443}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -3380,6 +3380,10 @@ PrefabInstance:
       propertyPath: movesVertical
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3626703581275651931, guid: 253c383c14545ce4f94ed4e78c3a8ef2, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1131147173}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 253c383c14545ce4f94ed4e78c3a8ef2, type: 3}
@@ -3912,6 +3916,10 @@ PrefabInstance:
       propertyPath: lowestValue
       value: -11
       objectReference: {fileID: 0}
+    - target: {fileID: 3626703581275651931, guid: 253c383c14545ce4f94ed4e78c3a8ef2, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1131147173}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 253c383c14545ce4f94ed4e78c3a8ef2, type: 3}
@@ -3923,6 +3931,11 @@ Transform:
 --- !u!224 &468992682 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2176472498333519769, guid: 6ee9d114b163f204dbf294c22e1df4a7, type: 3}
+  m_PrefabInstance: {fileID: 4589138372227038835}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &474996693 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4589138374060497666, guid: 6ee9d114b163f204dbf294c22e1df4a7, type: 3}
   m_PrefabInstance: {fileID: 4589138372227038835}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &475516109
@@ -4279,6 +4292,10 @@ PrefabInstance:
       propertyPath: movesVertical
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3626703581275651931, guid: 253c383c14545ce4f94ed4e78c3a8ef2, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1131147173}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 253c383c14545ce4f94ed4e78c3a8ef2, type: 3}
@@ -8297,6 +8314,10 @@ PrefabInstance:
       propertyPath: movesVertical
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3626703581275651931, guid: 253c383c14545ce4f94ed4e78c3a8ef2, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1131147173}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 253c383c14545ce4f94ed4e78c3a8ef2, type: 3}
@@ -8914,6 +8935,10 @@ PrefabInstance:
       propertyPath: movesVertical
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3626703581275651931, guid: 253c383c14545ce4f94ed4e78c3a8ef2, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1131147173}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 253c383c14545ce4f94ed4e78c3a8ef2, type: 3}
@@ -12769,7 +12794,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579738222}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -13128,7 +13153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a99fe7877feb0634f98d2b8c40176a45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixer: {fileID: 0}
+  mixer: {fileID: 24100000, guid: 2487c5dc01c631847b1acbb8d98f15ea, type: 2}
   multiplier: 30
   toggle: {fileID: 549321809}
   masterVolumeSlider: {fileID: 1589863796}
@@ -13383,6 +13408,10 @@ PrefabInstance:
       propertyPath: movesVertical
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3626703581275651931, guid: 253c383c14545ce4f94ed4e78c3a8ef2, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1131147173}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 253c383c14545ce4f94ed4e78c3a8ef2, type: 3}
@@ -13863,8 +13892,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Settings: {fileID: 1087897255}
-  MainButtons: {fileID: 0}
-  Cats: {fileID: 0}
+  MainButtons: {fileID: 474996693}
+  Cats: {fileID: 597312547}
+  playerMovement: {fileID: 1131147173}
+  audioSettings: {fileID: 1601847619}
 --- !u!114 &1723684313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13911,7 +13942,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1723684312}
         m_TargetAssemblyTypeName: MenuScripts, Assembly-CSharp
-        m_MethodName: LoadSettings
+        m_MethodName: LoadSettingsGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14043,6 +14074,10 @@ PrefabInstance:
       propertyPath: lowestValue
       value: -11
       objectReference: {fileID: 0}
+    - target: {fileID: 3626703581275651931, guid: 253c383c14545ce4f94ed4e78c3a8ef2, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1131147173}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 253c383c14545ce4f94ed4e78c3a8ef2, type: 3}
@@ -14291,6 +14326,10 @@ PrefabInstance:
       propertyPath: lowestValue
       value: -11
       objectReference: {fileID: 0}
+    - target: {fileID: 3626703581275651931, guid: 253c383c14545ce4f94ed4e78c3a8ef2, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1131147173}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 253c383c14545ce4f94ed4e78c3a8ef2, type: 3}
@@ -14509,7 +14548,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1723684312}
         m_TargetAssemblyTypeName: MenuScripts, Assembly-CSharp
-        m_MethodName: ExitSettings
+        m_MethodName: ExitSettingsGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16333,6 +16372,10 @@ PrefabInstance:
       propertyPath: lowestValue
       value: -11
       objectReference: {fileID: 0}
+    - target: {fileID: 3626703581275651931, guid: 253c383c14545ce4f94ed4e78c3a8ef2, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1131147173}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 253c383c14545ce4f94ed4e78c3a8ef2, type: 3}
@@ -16742,6 +16785,10 @@ PrefabInstance:
       propertyPath: movesVertical
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3626703581275651931, guid: 253c383c14545ce4f94ed4e78c3a8ef2, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1131147173}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 253c383c14545ce4f94ed4e78c3a8ef2, type: 3}

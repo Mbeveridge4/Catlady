@@ -10,13 +10,21 @@ public class EnemyMovementSimple : MonoBehaviour
     [SerializeField] private bool movesVertical = false; //used to change the movement from horizontal, to vertical
     [SerializeField] private float speed = 0.03f; //value that determines the speed of the object
     [SerializeField] private SpriteRenderer sr; //spriterenderer attached to the object
+    [SerializeField] private PlayerMovement playerMovement;
     
 
     // Update is called once per frame
     void Update()
     {
-        CheckDirection();
-        Move();
+        if (playerMovement.paused == true)
+        {
+            return;
+        }
+        else
+        {
+            CheckDirection();
+            Move();
+        }
     }
 
     void CheckDirection()
