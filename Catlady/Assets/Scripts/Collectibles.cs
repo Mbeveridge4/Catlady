@@ -9,8 +9,18 @@ public class Collectibles : MonoBehaviour
 {
     [SerializeField] private bool isLife = false; //used to differentiate behavior between lives and point collectibles
     [SerializeField] private int pointValue = 10; //set in unity, decides what this collectible is worth in points
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip life;
+    [SerializeField] private AudioClip points;
+
     private PlayerStatus playerStatus;
     // Start is called before the first frame update
+
+    private void Start()
+    {
+        source.playOnAwake = false;
+        
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -22,11 +32,15 @@ public class Collectibles : MonoBehaviour
             {
                 playerStatus.GainScore(pointValue);
                 Destroy(gameObject);
+                source.clip = points;
+                source.Play();
             }
             if (isLife == true) //if a life collectible, runs the life method and then destroys the collectible
             {
                 playerStatus.GainLives(1);
                 Destroy(gameObject);
+                source.clip = life;
+                source.Play();
             }
         }
     }

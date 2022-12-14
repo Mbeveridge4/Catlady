@@ -1,4 +1,6 @@
-Welcome to Tominaka Plaza. 
+x
+
+Hi there! Welcome to Tominaka Plaza. 
 
  Unfortunately We've got a bit of a security problem right now. Various office items have come to life, and are running rampage around the building! 
  

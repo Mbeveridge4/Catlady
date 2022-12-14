@@ -12,18 +12,29 @@ public class EnemyCollision : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Collider2D col;
     [SerializeField] private PlayerStatus playerStatus;
-    
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip enemy;
     [SerializeField] private int pointValue = 20;
-    
+    private int play;
 
+    private void Start()
+    {
+         play = PlayerPrefs.GetInt("deathsound");
+        if (play >= 1)
+        {
+            source.clip = enemy;
+            source.Play();
+            PlayerPrefs.SetInt("deathsound", 0);
+        }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
         if (collision.gameObject.CompareTag("Player"))  //if object that collides with it has the player tag
         {
             Debug.Log("You ran into an enemy");
+            PlayerPrefs.SetInt("deathsound", 1);
             playerStatus.LoseLives(1); //runs the lose life method in the playerStatus script, feeding it a int value of 1
-            
         }
 
         if (collision.gameObject.CompareTag("Projectile")) //if object that collides with it has the projectile tag
@@ -36,5 +47,7 @@ public class EnemyCollision : MonoBehaviour
         }
 
     }
+
+
 
 }

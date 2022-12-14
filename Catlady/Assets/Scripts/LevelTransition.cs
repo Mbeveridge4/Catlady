@@ -87,6 +87,7 @@ public class LevelTransition : MonoBehaviour
         PlayerPrefs.SetInt("savedScore", 0); //sets stored value saved (between levels) to 0
         PlayerPrefs.SetInt("currentFloor", 1); //sets current Floor Value to 0
         PlayerPrefs.SetInt("passHeld", 0); //sets pass held value to 0
+        PlayerPrefs.SetInt("deathsound", 0);
         SceneManager.LoadScene("Lobby");
         
         Debug.Log("Score set to:" + PlayerPrefs.GetInt("playerScore")); //prints in log what it has been set to for error checking
