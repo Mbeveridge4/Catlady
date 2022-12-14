@@ -110,4 +110,8 @@ public class LevelTransition : MonoBehaviour
         SceneManager.LoadScene(nextFloor); //when countdown gets to 0 loads the nextFloor
     }
 
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }

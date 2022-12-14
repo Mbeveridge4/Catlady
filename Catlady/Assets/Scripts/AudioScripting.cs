@@ -7,6 +7,7 @@ public class AudioScripting : MonoBehaviour
 
     [SerializeField] AudioSource firstAudio;
     [SerializeField] AudioSource secondAudio;
+    
 
     private void Awake()
     {
@@ -23,4 +24,8 @@ public class AudioScripting : MonoBehaviour
         }
 
     }
+
+   
+
+
 }

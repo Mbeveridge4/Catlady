@@ -363,10 +363,23 @@ MonoBehaviour:
   firePositionU3: {fileID: 4229959659976122391}
   isVertical: 0
   isNegative: 0
+  canMove: 1
   timerdefault: 0.2
   gun1delay: 0
   gun2delay: 0
   gun3delay: 0
+  levelTrans: {fileID: 0}
+  weaponSource: {fileID: 0}
+  snotClipsArray:
+  - {fileID: 8300000, guid: f4cf2d4317f95d448b7fd376a75de63d, type: 3}
+  - {fileID: 8300000, guid: c449dee40c17c944f92f911eb93f0e3d, type: 3}
+  - {fileID: 8300000, guid: e4183b19dceceb0429fda267d69364b9, type: 3}
+  furballClipsArray:
+  - {fileID: 8300000, guid: d51d2fb09eca3c3499d2edbc2b022281, type: 3}
+  fartClipsArray:
+  - {fileID: 8300000, guid: b3a100dbcb674c54391603ac32e6f1fc, type: 3}
+  - {fileID: 8300000, guid: 3b3f47003656fc2409f6ace0c579f0ef, type: 3}
+  - {fileID: 8300000, guid: bae7a38d5b2b2634ebd25693ba7b22ec, type: 3}
 --- !u!114 &3959680789909652883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,7 +392,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367ad02edc4b53841a7140093277392c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLives: 3
   scoreText: {fileID: 0}
   killText: {fileID: 0}
   playerPos: {fileID: 3959680789909652886}

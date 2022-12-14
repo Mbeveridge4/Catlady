@@ -24,6 +24,14 @@ public class PlayerMovement : MonoBehaviour
     private float timer = .4f;
     private int snotPos = 1;
     public LevelTransition levelTrans;
+    [Tooltip("Audio for each weapontype")]
+    [SerializeField] AudioSource weaponSource;
+    [SerializeField] AudioClip[] snotClipsArray;
+    [SerializeField] AudioClip[] furballClipsArray;
+    [SerializeField] AudioClip[] fartClipsArray;
+    [SerializeField] AudioClip snoring;
+    [SerializeField] GameObject menu;
+    public bool paused = false;
 
 
 
@@ -44,12 +52,19 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
        
+        if (paused)
+        {
+            return;
+        }
+        
+
             int playerWeapon = PlayerPrefs.GetInt("playerWeapon");
 
             //if Escape key is pressed - reloads the DevelopmentScene **remove before final build!**
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                levelTrans.NewGame();
+            menu.SetActive(true);
+            Time.timeScale = 0f;
             }
 
             //sets mx float to the horizontal player input from unity (A,D or left or right keys)
@@ -118,20 +133,28 @@ public class PlayerMovement : MonoBehaviour
                         if (isNegative == false && isVertical == false)
                         {
                             Projectile1R(); //calls the function to shoot right & cycle between positions
-                        }
+                        weaponSource.clip = snotClipsArray[Random.Range(0, snotClipsArray.Length)];
+                        weaponSource.Play();
+                    }
                         if (isNegative == true && isVertical == false)
                         {
                             Projectile1L(); //calls the function to shoot left & cycle between positions
-                        }
+                        weaponSource.clip = snotClipsArray[Random.Range(0, snotClipsArray.Length)];
+                        weaponSource.Play();
+                    }
 
                         if (isNegative == false && isVertical == true)
                         {
                             Projectile1Up(); //calls the function to shoot up & cycle between positions
-                        }
+                        weaponSource.clip = snotClipsArray[Random.Range(0, snotClipsArray.Length)];
+                        weaponSource.Play();
+                    }
                         if (isNegative == true && isVertical == true)
                         {
                             Projectile1Down(); //calls the function to shoot down & cycle between positions
-                        }
+                        weaponSource.clip = snotClipsArray[Random.Range(0, snotClipsArray.Length)];
+                        weaponSource.Play();
+                    }
 
                         break;
 
@@ -140,11 +163,15 @@ public class PlayerMovement : MonoBehaviour
                         if (isNegative == false && isVertical == false)
                         {
                             Projectile2R(); //calls the function to shoot right
-                        }
+                        weaponSource.clip = furballClipsArray[Random.Range(0, furballClipsArray.Length)];
+                        weaponSource.Play();
+                    }
                         if (isNegative == true && isVertical == false)
                         {
                             Projectile2L(); //calls the function to shoot left
-                        }
+                        weaponSource.clip = furballClipsArray[Random.Range(0, furballClipsArray.Length)];
+                        weaponSource.Play();
+                    }
 
 
                         break;
@@ -152,14 +179,21 @@ public class PlayerMovement : MonoBehaviour
                     case 3: // creates an instance of projectile3 at the players position if weapon 3 is the current weapon
                         Instantiate(projectile3, transform.position, transform.rotation);
                         Debug.Log("You fired gun 3");
+                    weaponSource.clip = fartClipsArray[Random.Range(0, fartClipsArray.Length)];
+                    weaponSource.Play();
 
-                        break;
+                    break;
 
 
                 }
 
                 timer = timerdefault; //resets the timer to default (used to prevent excessive rate of fire.
             }
+            if (timer <= 0 !&& Input.GetKeyDown(KeyCode.Space))
+        {
+            weaponSource.clip = snoring;
+            weaponSource.Play();
+        }
 
 
 
@@ -346,8 +380,16 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("You fired gun 2");
         }
 
-         
-    
-    
+    public void Pause()
+    {
+        paused = true;
+    }
+    public void Unpause()
+    {
+        paused = false;
+    }
+
+
+
 }
     
