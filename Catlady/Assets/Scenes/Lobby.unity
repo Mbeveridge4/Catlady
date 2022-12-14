@@ -13125,6 +13125,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 41427985}
     m_Modifications:
+    - target: {fileID: 15391284, guid: 1a312647005bf934a99a3fd6f889d154, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 2282971832277918282, guid: 1a312647005bf934a99a3fd6f889d154, type: 3}
       propertyPath: m_Name
       value: Receptionist
