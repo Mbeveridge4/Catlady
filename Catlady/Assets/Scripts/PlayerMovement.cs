@@ -42,6 +42,8 @@ public class PlayerMovement : MonoBehaviour
         gun2.SetActive(false);
         gun1.SetActive(true);
         spriteRenderer.flipX = false;
+        paused = false;
+        Time.timeScale = 1f;
     }
 
 

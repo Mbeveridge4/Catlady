@@ -1,4 +1,4 @@
-x
+Receptionist:
 
 Hi there! Welcome to Tominaka Plaza. 
 

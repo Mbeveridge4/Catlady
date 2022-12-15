@@ -18,6 +18,11 @@ public class CameraMovement : MonoBehaviour
     //declares position variables to be altered for the camera
     private Vector3 cameraPos;
     private Vector3 velocity = Vector3.zero;
+    [SerializeField] private float minY;
+    [SerializeField] private float maxY;
+    [SerializeField] private float minX;
+    [SerializeField] private float maxX;
+    private Vector3 position;
 
     void Update()
     {
@@ -27,6 +32,16 @@ public class CameraMovement : MonoBehaviour
         cameraPos -= offset;
         // moves the camera if its not at the desired location, but with a delay
         transform.position = Vector3.SmoothDamp(gameObject.transform.position, cameraPos, ref velocity, dampTime);
+         position = transform.position;
+        Clamp(ref position);
+        transform.position = position;
+        
+    }
 
+    public Vector3 Clamp(ref Vector3 value)
+    {
+        value.x = Mathf.Clamp(value.x, minX, maxX);
+        value.y = Mathf.Clamp(value.y, minY, maxY);
+        return value;
     }
 }
